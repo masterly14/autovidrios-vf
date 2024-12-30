@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://autovidriosvf.com/"),
   openGraph: {
     title: "Autovidrios V&F - World Class Glass",
-    description: "Venta de vidrios para carros originales e importados para vehículos",
+    description: "Venta de vidrios originales e importados para vehiculo, instalacion y mantenimiento de vidrios para vehiculos de todas las marcas en Bogota, y mucho más.",
     url: "https://autovidriosvf.com/",
     siteName: "Autovidrios V&F - World Class Glass",
     images: [
