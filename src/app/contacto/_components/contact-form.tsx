@@ -58,8 +58,8 @@ export function ContactForm() {
         }`,
       });
       form.reset();
-    } catch (error) {
-      toast({ title: "Error al enviar el mensaje" });
+    } catch (error: any) {
+      toast({ title: "Error al enviar el mensaje", description: error.message });
     }
   }
 

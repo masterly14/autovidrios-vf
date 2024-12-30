@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Palette, PenTool, Printer, ShoppingBag, Package, Thermometer } from 'lucide-react';
 import ServiceList from "./service-list";
 import ServiceDetails from "./service-details";
 
@@ -40,7 +39,7 @@ export default function OurServices() {
   const [selectedService, setSelectedService] = useState<number | null>(0);
 
   return (
-    <section className="py-16 px-4 bg-background text-foreground">
+    <section className="py-16 px-4 bg-background text-foreground" id="productos">
       <div className="container mx-auto">
         <motion.h2
           className={`mb-12 text-center text-3xl font-bold text-primary md:text-4xl text-[#FF8B8B]`}

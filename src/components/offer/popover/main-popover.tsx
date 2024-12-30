@@ -1,7 +1,6 @@
 import React from "react";
 import { PopoverDemo } from "./popover-component";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
 import ContentPopover from "./content-popover";
 
 const MainPopover = () => {

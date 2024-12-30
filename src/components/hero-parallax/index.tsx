@@ -148,9 +148,9 @@ export const HeroParallax = ({
 export const Header = () => {
   return (
     <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full left-0 top-0">
-      <h1 className="text-2xl md:text-7xl font-bold dark:text-white">
+      <p className="text-2xl md:text-7xl font-bold dark:text-white">
         Algunos trabajos que<br /> hemos realizado
-      </h1>
+      </p>
       <p className="max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200">
         Galeria dinamica de lo que nos orgullece en Autovidrios V&F en conjunto con World Class Glass
       </p>
@@ -187,6 +187,7 @@ export const ProductCard = ({
         <Image
           src={product.thumbnail}
           height="600"
+          loading="lazy"
           width="600"
           className="object-cover object-left-top absolute h-full w-full inset-0"
           alt={product.title}

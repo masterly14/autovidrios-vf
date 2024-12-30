@@ -1,0 +1,4 @@
+User-agent: *        
+Allow: /             
+Disallow: /api/*     # Bloquea el acceso a las rutas de API
+Sitemap: https://autovidriosvf.com/sitemap.xml

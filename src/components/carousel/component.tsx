@@ -84,6 +84,7 @@ export default function AutoCarousel() {
                 alt={`Logo ${index + 1}`}
                 width={100}
                 height={100}
+                loading="lazy"
               />
             </motion.div>
           ))}

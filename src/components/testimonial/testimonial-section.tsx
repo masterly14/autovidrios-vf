@@ -4,22 +4,22 @@ import { Card, CardContent, CardFooter } from "@/components/ui/card";
 const testimonials = [
   {
     name: "María García",
-    text: "Sin duda alguna recomiendo al 100% a Autovidrios V&F, desde la asesoria que me dieron hasta la atención por parte de su personal me ayudaron a blindar los vidrios de mi vehiculo lo que necesitaba especificamente,totalmente recomendado",
+    text: "Sin duda alguna, recomiendo al 100% a Autovidrios V&F. Desde la asesoría que me brindaron hasta la atención por parte de su personal, me ayudaron a blindar los vidrios de mi vehículo de acuerdo a lo que necesitaba específicamente. Totalmente recomendado.",
     rating: 5,
   },
   {
     name: "Juan Pérez",
-    text: "Desde el primer momento me ayudaro con todos los minimos detalles sobre lo que le realizaron a mi vehiculo, hasta el momento llevo 1 año con el panoramico delantero y trasero que ellos me instalaron, No he tenido el más minimo inconveniente",
+    text: "Desde el primer momento me ayudaron con todos los mínimos detalles sobre lo que le realizaron a mi vehículo. Hasta el momento, llevo 1 año con el panorámico delantero y trasero que ellos me instalaron. No he tenido el más mínimo inconveniente.",
     rating: 5,
   },
   {
     name: "Ana Martínez",
-    text: "Los muchachos de Autovidrios V&F se esfierzan por brindar un servicio de calidad, desde el primer momento que llegue a sus instalaciones me brindaron la mejor atención, me ayudaron a elegir el vidrio que mejor se adaptaba a mi vehiculo, sin duda alguna los recomiendo",
+    text: "Los muchachos de Autovidrios V&F se esfuerzan por brindar un servicio de calidad. Desde el primer momento que llegué a sus instalaciones, me brindaron la mejor atención y me ayudaron a elegir el vidrio que mejor se adaptaba a mi vehículo. Sin duda alguna, los recomiendo.",
     rating: 5,
   },
   {
     name: "Carlos Rodríguez",
-    text: "Los vidrios que manejan en autovidrios V&F son de la mejor calidad, me ayudaron a elegir el vidrio que mejor se adaptaba a mi vehiculo, y la importación fue muy rápida, la verdad quede muy satisfecho de su servicio.",
+    text: "Los vidrios que manejan en Autovidrios V&F son de la mejor calidad. Me ayudaron a elegir el vidrio que mejor se adaptaba a mi vehículo, y la importación fue muy rápida. La verdad, quedé muy satisfecho con su servicio.",
     rating: 5,
   },
   {
@@ -29,10 +29,11 @@ const testimonials = [
   },
   {
     name: "Santiago Ramírez",
-    text: "La experiencia con Autovidrios V&F fue excelente, me explicaron todo el proceso de instalación de los vidrios de mi camioneta y se aseguraron de que todo quedara perfecto. La calidad de los materiales es increíble, y el equipo fue muy profesional en todo momento. Definitivamente volvería a confiar en ellos.",
+    text: "La experiencia con Autovidrios V&F fue excelente. Me explicaron todo el proceso de instalación de los vidrios de mi camioneta y se aseguraron de que todo quedara perfecto. La calidad de los materiales es increíble, y el equipo fue muy profesional en todo momento. Definitivamente volvería a confiar en ellos.",
     rating: 5,
   },
 ];
+
 
 export default function Testimonials() {
   return (
@@ -60,7 +61,7 @@ export default function Testimonials() {
                 ))}
               </div>
               <p className="text-card-foreground italic mb-4">
-                "{testimonial.text}"
+                {testimonial.text}
               </p>
             </CardContent>
             <CardFooter className="border-t border-border pt-4">

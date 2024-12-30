@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { Button } from "../ui/button";
 import { ArrowDownNarrowWideIcon, ArrowUpRightFromCircle } from "lucide-react";
 import MainPopover from "./popover/main-popover";
@@ -16,7 +16,6 @@ const detailsVariants = {
 };
 
 export default function ServiceDetails({ service }: { service: any }) {
-  const videoRef = useRef<HTMLVideoElement>(null);
   const [isOpen, setIsOpen] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
 
@@ -109,6 +108,7 @@ export default function ServiceDetails({ service }: { service: any }) {
                     <Image
                       src={`/global/${"ANTIROBO-DIALOG.png"}`}
                       alt={"antirobo"}
+                      loading="lazy"
                       width={150}
                       height={150}
                     />
@@ -141,11 +141,12 @@ export default function ServiceDetails({ service }: { service: any }) {
                 : "carro-vidrios.png"
             }`}
             alt="imagen de vidrios para vehículo"
+            loading="lazy"
             width={420}
             height={250}
             className="md:h-[420px] h-[250px] w-full overflow-hidden"
           />
-          <Link href={"/contact"} className="w-[50%]">
+          <Link href={"/contacto"} className="w-[50%]">
             <Button size={"sm"}>Cotizar para mi vehículo</Button>
           </Link>
         </div>

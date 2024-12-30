@@ -1,11 +1,15 @@
-"use client"
-
 import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 import { PhoneIcon as WhatsappIcon } from 'lucide-react'
 import Link from "next/link"
 import AutoCarousel from "@/components/carousel/component"
+import { Metadata } from "next"
 
+
+export const metadata: Metadata = {
+  title: 'Sobre Nosotros - Venta de vidrios originales e importados para vehículos en Bogotá',
+  description: "Autovidrios V&F nace con el proposito de brindarle al mercado colombiano la mejor calidad y seguridad con los productos para sus vehiculos, cubriend"
+}
 export default function page() {
   return (
     <div className="flex flex-col justify-center items-center bg-black p-10">
@@ -16,6 +20,7 @@ export default function page() {
           <div className="relative w-full h-[400px] md:h-full bg-gray-100">
             <Image
               src="/hero/autovidrios-wcg.png"
+              loading="lazy"
               alt="Equipo Polarizados"
               fill
               className="object-cover"
@@ -27,8 +32,8 @@ export default function page() {
           <div className="p-6 md:p-8 flex flex-col gap-6">
             <div className="space-y-4">
               <p className="text-lg">
-                Autovidrios V&F Ya nace con el proposito de brindarle al mercado colombiano
-                <span className="font-semibold">la mejor seguridad y calidad con los productos para sus vehiculos</span>, cubriendo desde vidrios hasta instalaciones y demás servicios.
+                Autovidrios V&F nace con el proposito de brindarle al mercado colombiano
+                <span className="font-semibold">la mejor calidad y seguridad con los productos para sus vehiculos</span>, cubriendo desde vidrios hasta instalaciones y demás servicios.
               </p>
 
               <p className="text-lg">

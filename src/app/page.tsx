@@ -1,8 +1,8 @@
 import AutoCarousel from "@/components/carousel/component";
-import Footer from "@/components/footer";
+import Chatbot from "@/components/chatbot";
 import CarouselComponent from "@/components/hero";
 import { HeroParallaxDemo } from "@/components/hero-parallax/component";
-import MapComponent from "@/components/location";
+import MainLocation from "@/components/location";
 import OurServices from "@/components/offer/our-services";
 import Testimonials from "@/components/testimonial/testimonial-section";
 import { WorldMapDemo } from "@/components/world-map/component";
@@ -17,12 +17,13 @@ export default function Home() {
         <WorldMapDemo />
       </div>
       <div className="bg-black">
-      <HeroParallaxDemo />
+        <HeroParallaxDemo />
       </div>
       <Testimonials />
       <div className="mb-10">
-      <MapComponent />
+        <MainLocation />
       </div>
+      <Chatbot />
     </div>
   );
 }

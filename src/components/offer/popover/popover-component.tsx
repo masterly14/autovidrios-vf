@@ -6,7 +6,7 @@ import {
 } from "@/components/ui/popover";
 
 type Props = {
-  Trigger: String;
+  Trigger: string;
   Content: React.ReactNode;
 };
 export function PopoverDemo({ Trigger, Content }: Props) {

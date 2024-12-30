@@ -11,8 +11,8 @@ const ContentPopover = ({ imageUrl }: Props) => {
   return (
     <div className="flex flex-col items-center justify-center gap-y-4">
       <p>Imagen de referencia</p>
-      <Image src={`/global/${imageUrl}`} alt={imageUrl} width={150} height={150} />
-      <Link href={'/contact'}>
+      <Image src={`/global/${imageUrl}`} alt={imageUrl} width={150} height={150} loading="lazy"/>
+      <Link href={'/contacto'}>
       <Button size={"sm"}>Cotizar para mi vehículo</Button>
       </Link>
     </div>

@@ -40,36 +40,63 @@ const NavBarComponent = () => {
           />
         </div>
         <div className="flex items-center space-x-6">
-          <Link href={"/"} className={`${path === "/" ? "text-white" : 'text-muted-foreground'} uppercase`}>
+          <Link
+            href={"/"}
+            className={`${
+              path === "/" ? "text-white" : "text-muted-foreground"
+            } uppercase`}
+          >
             Inicio
           </Link>
           <Link
             href={"/sobre-nosotros"}
-            className={`${path === "/sobre-nosotros" ? "text-white": 'text-muted-foreground'} uppercase`}
+            className={`${
+              path === "/sobre-nosotros"
+                ? "text-white"
+                : "text-muted-foreground"
+            } uppercase`}
           >
             Sobre nosotros
           </Link>
           <Link
             href={"/contacto"}
-            className={`${path === "/contacto" ? "text-white": 'text-muted-foreground'} uppercase`}
+            className={`${
+              path === "/contacto" ? "text-white" : "text-muted-foreground"
+            } uppercase`}
           >
             Contacto
           </Link>
           <Link
-            href={"/productos"}
-            className={`${path === "/productos" ? "text-white" : 'text-muted-foreground'} uppercase`}
+            href={"/#productos"}
+            className={`${
+              path === "/productos" ? "text-white" : "text-muted-foreground"
+            } uppercase`}
           >
             Productos
           </Link>
         </div>
         <div className="flex items-center space-x-4">
-          <Button className="bg-muted p-2 flex">
-            WhatsApp 
-          </Button>
+          <Link href={"https://wa.link/14qlpa"}>
+            <Button className="bg-muted p-2 flex">
+              WhatsApp <WhatsAppDuoToneBlue />
+            </Button>
+          </Link>
           <div className="flex gap-x-4">
-            <Instagram />
-            <Facebook />
-            <SvgTiktokIcon />
+            <Link href={"https://www.instagram.com/world_class_glass/"}>
+              <Instagram />
+            </Link>
+            <Link
+              href={"https://www.facebook.com/profile.php?id=61571166966495"}
+            >
+              <Facebook />
+            </Link>
+            <Link
+              href={
+                "https://www.tiktok.com/@world_class_glass?_t=8sb8NZrpBNw&_r=1"
+              }
+            >
+              <SvgTiktokIcon />
+            </Link>
           </div>
         </div>
       </div>
@@ -93,9 +120,12 @@ const NavBarComponent = () => {
           />
         </div>
         <div className="gap-x-3 flex items-center justify-center">
-          <Button className="bg-muted p-2 flex">
-            WhatsApp <WhatsAppDuoToneBlue />
-          </Button>
+          <Link href={"https://wa.link/14qlpa"}>
+            <Button className="bg-muted p-2 flex">
+              WhatsApp <WhatsAppDuoToneBlue />
+            </Button>
+          </Link>
+
           <Sheet>
             <SheetTrigger>
               <Menu />
@@ -103,10 +133,26 @@ const NavBarComponent = () => {
             <SheetContent>
               <SheetHeader>
                 <SheetTitle className="flex gap-x-6">
-                <WhatsAppDuoToneBlue />
-                <SvgTiktokIcon />
-                  <Instagram />
-                  <Facebook />
+                  <Link href={"https://wa.link/14qlpa"}>
+                    <WhatsAppDuoToneBlue />
+                  </Link>
+                  <Link
+                    href={
+                      "https://www.tiktok.com/@world_class_glass?_t=8sb8NZrpBNw&_r=1"
+                    }
+                  >
+                    <SvgTiktokIcon />
+                  </Link>
+                  <Link href={"https://www.instagram.com/world_class_glass/"}>
+                    <Instagram />
+                  </Link>
+                  <Link
+                    href={
+                      "https://www.facebook.com/profile.php?id=61571166966495"
+                    }
+                  >
+                    <Facebook />
+                  </Link>
                 </SheetTitle>
               </SheetHeader>
               <SheetDescription className="flex flex-col gap-y-10 items-center justify-center h-full">
@@ -126,7 +172,7 @@ const NavBarComponent = () => {
                   Contacto
                 </Link>
                 <Link
-                  href={"/productos"}
+                  href={"/#productos"}
                   className={`${path === "/productos" && "text-white"}`}
                 >
                   Productos
