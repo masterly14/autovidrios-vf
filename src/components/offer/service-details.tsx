@@ -134,7 +134,7 @@ export default function ServiceDetails({ service }: { service: any }) {
                 ? "carro-vidrios.png"
                 : service.title === "Instalación de vidrios blindados" ||
                   service.title === "Mantenimiento de vehículos blindados" ||
-                  service.title === "Polarizado"
+                  service.title === "Polarizados"
                 ? "suv-armored.png"
                 : service.title === "Instalación de Sunroof" ||
                   service.title === "Mantenimiento de Sunroof"
