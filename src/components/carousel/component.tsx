@@ -15,10 +15,12 @@ const logos = [
   "/logos/volvo.webp",
   "/logos/subaru.webp",
   "/logos/volswagen.webp",
+  "/logos/range-rover.webp",
   "/logos/honda.webp",
   "/logos/hyundai.webp",
   "/logos/kia.webp",
   "/logos/jeep.webp",
+  "logos/land-rover.webp",
 ];
 
 export default function AutoCarousel() {
