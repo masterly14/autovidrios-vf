@@ -24,7 +24,7 @@ export const HeroParallax = ({
   const thirdRow = products.slice(10, 15);
   const ref = React.useRef(null);
   const containerRef = React.useRef<HTMLDivElement>(null);
-  
+
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
@@ -33,46 +33,43 @@ export const HeroParallax = ({
   // Configure the spring animation
   const springConfig = { stiffness: 300, damping: 30, bounce: 100 };
 
-  // Calculate the total width that needs to be scrolled
-  const totalScrollWidth = 1000; // This matches our transform values
+  const totalScrollWidth = 3920;
 
-  // Transform scrollYProgress to create a "lock" effect
+  const translateX = useSpring(
+    useTransform(scrollYProgress, [0, 1], [0, totalScrollWidth]), // Más tiempo para el desplazamiento
+    { stiffness: 150, damping: 50 } // Resorte más "suave" y lento
+  );
+
+  const translateXReverse = useSpring(
+    useTransform(scrollYProgress, [0, 1], [0, -totalScrollWidth]),
+    { stiffness: 150, damping: 50 } // Configuración igual al resorte anterior
+  );
+
+  // Extender la duración del bloqueo del scroll
   const scrollLock = useTransform(scrollYProgress, (latest) => {
-    // Lock vertical scroll while horizontal scroll is happening
-    if (latest <= 0.8) {
+    if (latest <= 1) {
+      // Mantener el scroll bloqueado por más tiempo
       return 0;
     }
-    // Resume vertical scroll after horizontal is complete
-    return (latest - 0.8) * 5; // Accelerate the scroll after unlock
+    return (latest - 1) * 5; // Ajustar aceleración
   });
-
-  // Modified translate transforms to complete before vertical scroll resumes
-  const translateX = useSpring(
-    useTransform(scrollYProgress, [0, 0.8], [0, totalScrollWidth]),
-    springConfig
-  );
-  
-  const translateXReverse = useSpring(
-    useTransform(scrollYProgress, [0, 0.8], [0, -totalScrollWidth]),
-    springConfig
-  );
 
   // Other animations complete earlier in the scroll sequence
   const rotateX = useSpring(
     useTransform(scrollYProgress, [0, 0.2], [15, 0]),
     springConfig
   );
-  
+
   const opacity = useSpring(
     useTransform(scrollYProgress, [0, 0.2], [0.2, 1]),
     springConfig
   );
-  
+
   const rotateZ = useSpring(
     useTransform(scrollYProgress, [0, 0.2], [20, 0]),
     springConfig
   );
-  
+
   const translateY = useSpring(
     useTransform(scrollYProgress, [0, 0.2], [-700, 0]),
     springConfig
@@ -83,7 +80,7 @@ export const HeroParallax = ({
     const container = containerRef.current;
     if (!container) return;
 
-    scrollLock.onChange(latest => {
+    scrollLock.onChange((latest) => {
       container.style.transform = `translateY(${latest * 100}vh)`;
     });
 
@@ -93,10 +90,7 @@ export const HeroParallax = ({
   }, [scrollLock]);
 
   return (
-    <div
-      ref={ref}
-      className="h-[300vh] overflow-hidden antialiased relative"
-    >
+    <div ref={ref} className="md:h-[300vh] h-[200vh] overflow-hidden antialiased relative">
       <div
         ref={containerRef}
         className="sticky top-0 h-screen flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
@@ -149,10 +143,12 @@ export const Header = () => {
   return (
     <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full left-0 top-0">
       <p className="text-2xl md:text-7xl font-bold dark:text-white">
-        Algunos trabajos que<br /> hemos realizado
+        Algunos trabajos que
+        <br /> hemos realizado
       </p>
       <p className="max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200">
-        Galeria dinamica de lo que nos orgullece en Autovidrios V&F en conjunto con World Class Glass
+        Galeria dinamica de lo que nos orgullece en Autovidrios V&F en conjunto
+        con World Class Glass
       </p>
     </div>
   );
@@ -178,7 +174,9 @@ export const ProductCard = ({
         y: -20,
       }}
       key={product.title}
-      className="group/product h-96 w-[30rem] relative flex-shrink-0"
+      className="group/product relative flex-shrink-0 
+             h-80 w-[20rem] 
+             md:h-96 md:w-[40rem]" // Clases responsivas
     >
       <Link
         href={product.link}
@@ -186,9 +184,8 @@ export const ProductCard = ({
       >
         <Image
           src={product.thumbnail}
-          height="600"
-          loading="lazy"
-          width="600"
+          height={600} // Tamaño inicial para pantallas grandes
+          width={480}
           className="object-cover object-left-top absolute h-full w-full inset-0"
           alt={product.title}
         />
