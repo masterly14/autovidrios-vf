@@ -90,7 +90,7 @@ export const HeroParallax = ({
   }, [scrollLock]);
 
   return (
-    <div ref={ref} className="md:h-[300vh] h-[200vh] overflow-hidden antialiased relative">
+    <div ref={ref} className="md:h-[200vh] h-[150vh] overflow-hidden antialiased relative">
       <div
         ref={containerRef}
         className="sticky top-0 h-screen flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"

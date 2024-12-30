@@ -5,20 +5,20 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 const logos = [
-  "/logos/audi.png",
-  "/logos/bmw.png",
-  "/logos/ford.png",
-  "/logos/lexus.png",
-  "/logos/mazda.png",
-  "/logos/mercedes-benz.png",
-  "/logos/toyota.png",
-  "/logos/volvo.png",
-  "/logos/subaru.png",
-  "/logos/volswagen.png",
-  "/logos/honda.png",
-  "/logos/hyundai.png",
-  "/logos/kia.png",
-  "/logos/jeep.png",
+  "/logos/audi.webp",
+  "/logos/bmw.webp",
+  "/logos/ford.webp",
+  "/logos/lexus.webp",
+  "/logos/mazda.webp",
+  "/logos/mercedes-benz.webp",
+  "/logos/toyota.webp",
+  "/logos/volvo.webp",
+  "/logos/subaru.webp",
+  "/logos/volswagen.webp",
+  "/logos/honda.webp",
+  "/logos/hyundai.webp",
+  "/logos/kia.webp",
+  "/logos/jeep.webp",
 ];
 
 export default function AutoCarousel() {

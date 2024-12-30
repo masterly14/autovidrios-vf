@@ -11,7 +11,7 @@ const page = () => {
   return (
     <div 
       className="flex items-center justify-center py-10 bg-black"
-      style={{ backgroundImage: 'url(/hero/contact-image.png)', backgroundSize: 'cover', backgroundPosition: 'center' }}
+      style={{ backgroundImage: 'url(/hero/contact-image.webp)', backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
       <Card>
         <CardHeader>

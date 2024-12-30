@@ -9,101 +9,76 @@ export const products = [
   {
     title: "Autovidrios V&F",
     link: "#",
-    thumbnail: "/global/wcg/img-1.png",
+    thumbnail: "/global/wcg/img-3.webp",
   },
   {
     title: "Autovidrios V&F",
     link: "#",
-    thumbnail: "/global/wcg/img-2.png",
+    thumbnail: "/global/wcg/img-21.webp"
   },
   {
     title: "Autovidrios V&F",
     link: "#",
-    thumbnail: "/global/wcg/img-3.png",
+    thumbnail: "/global/wcg/img-1.webp",
   },
   {
     title: "Autovidrios V&F",
     link: "#",
-    thumbnail: "/global/wcg/img-4.png",
+    thumbnail: "/global/wcg/img-2.webp",
   },
   {
     title: "Autovidrios V&F",
     link: "#",
-    thumbnail: "/global/wcg/img-5.png",
+    thumbnail: "/global/wcg/img-4.webp",
   },
   {
     title: "Autovidrios V&F",
     link: "#",
-    thumbnail: "/global/wcg/img-6.png",
+    thumbnail: "/global/wcg/img-5.webp",
   },
   {
     title: "Autovidrios V&F",
     link: "#",
-    thumbnail: "/global/wcg/img-7.png",
+    thumbnail: "/global/wcg/img-6.webp",
   },
   {
     title: "Autovidrios V&F",
     link: "#",
-    thumbnail: "/global/wcg/img-8.png",
+    thumbnail: "/global/wcg/img-7.webp",
   },
   {
     title: "Autovidrios V&F",
     link: "#",
-    thumbnail: "/global/wcg/img-9.png",
+    thumbnail: "/global/wcg/img-8.webp",
   },
   {
     title: "Autovidrios V&F",
     link: "#",
-    thumbnail: "/global/wcg/img-10.png",
+    thumbnail: "/global/wcg/img-13.webp",
   },
   {
     title: "Autovidrios V&F",
     link: "#",
-    thumbnail: "/global/wcg/img-11.png",
+    thumbnail: "/global/wcg/img-14.webp",
   },
   {
     title: "Autovidrios V&F",
     link: "#",
-    thumbnail: "/global/wcg/img-12.png",
+    thumbnail: "/global/wcg/img-15.webp",
   },
   {
     title: "Autovidrios V&F",
     link: "#",
-    thumbnail: "/global/wcg/img-13.png",
+    thumbnail: "/global/wcg/img-16.webp",
   },
   {
     title: "Autovidrios V&F",
     link: "#",
-    thumbnail: "/global/wcg/img-14.png",
+    thumbnail: "/global/wcg/img-17.webp",
   },
   {
     title: "Autovidrios V&F",
     link: "#",
-    thumbnail: "/global/wcg/img-15.png",
-  },
-  {
-    title: "Autovidrios V&F",
-    link: "#",
-    thumbnail: "/global/wcg/img-16.png",
-  },
-  {
-    title: "Autovidrios V&F",
-    link: "#",
-    thumbnail: "/global/wcg/img-17.png",
-  },
-  {
-    title: "Autovidrios V&F",
-    link: "#",
-    thumbnail: "/global/wcg/img-18.png",
-  },
-  {
-    title: "Autovidrios V&F",
-    link: "#",
-    thumbnail: "/global/wcg/img-19.png",
-  },
-  {
-    title: "Autovidrios V&F",
-    link: "#",
-    thumbnail: "/global/wcg/img-20.png",
+    thumbnail: "/global/wcg/img-18.webp",
   },
 ];

@@ -13,12 +13,13 @@ export default function Footer() {
             </h3>
             <p className="mb-1">+57 3112988995</p>
             <p className="mb-1">+57 3193511128</p>
-            <p>(601) 9389315</p>
+            <p>(601) 938 9315</p>
+            <p>(601) 805 0502</p>
           </div>
           <div className="w-full md:w-1/3 mb-6 md:mb-0 text-center">
             <div className="flex items-center justify-center gap-x-3">
               <Image
-                src={"/logos/Autovidrios-V&F.png"}
+                src={"/logos/Autovidrios-V&F.webp"}
                 alt="logo-autovidrios-v&f"
                 loading="lazy"
                 width={150}
@@ -26,7 +27,8 @@ export default function Footer() {
                 className="object-cover"
               />
               <Image
-                src={"/logos/wcg.png"}
+                src={"/logos/wcg.webp"}
+                loading="lazy"
                 alt="logo-wcg"
                 width={100}
                 height={100}

@@ -5,12 +5,12 @@ const carouselItems = [
     imageUrl: "/hero/contenedores.webp",
     text: "Importación de vidrios americanos para vehículo",
     buttonText: "Conocer más",
-    buttonLink: "/#productos",
+    buttonLink: "/contacto",
     subtitle:
       "Contamos con los mejores vidrios importados de Estados Unidos y nos caracterizamos por entrega rápida. ¡Conoce más!",
   },
   {
-    imageUrl: "/hero/autovidrios-wcg.png",
+    imageUrl: "/hero/autovidrios-wcg.webp",
     text: "Bienvenido a World Class Glass",
     buttonText: "Conocer más",
     buttonLink: "/sobre-nosotros",
@@ -18,7 +18,7 @@ const carouselItems = [
       "Hemos cambiado para mejorar, ahora nos hemos unido con World Class Glass. ¡Conoce más!",
   },
   {
-    imageUrl: "/hero/suv-blindada.png",
+    imageUrl: "/hero/suv-blindada.webp",
     text: "La seguridad es lo primero",
     buttonText: "Conocer más",
     buttonLink: "/#productos", 
@@ -26,7 +26,7 @@ const carouselItems = [
       "Con nosotros puedes instalar vidrios blindados o, darle mantenimiento a tu vehiculo blindado ¡Conoce más!",
   },
   {
-    imageUrl: "/hero/sunroof.jpg",
+    imageUrl: "/hero/sunroof.webp",
     text: "Disfruta de la vista",
     buttonText: "Conocer más",
     buttonLink: "/#productos",

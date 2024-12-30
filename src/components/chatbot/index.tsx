@@ -45,7 +45,7 @@ const ChatWindow = ({
   return (
     <Card className="fixed bottom-20 right-4 w-80 shadow-lg">
       <CardHeader className="flex flex-row items-center">
-        <Image src={'/logos/bot-icon.png'} alt="bot-icon" width={50} height={50} className="rounded-full mr-4" loading="lazy"/>
+        <Image src={'/logos/bot-icon.webp'} alt="bot-icon" width={50} height={50} className="rounded-full mr-4" loading="lazy"/>
         <CardTitle>Autovidrios BOT</CardTitle>
         <Button variant="ghost" className="ml-auto" onClick={onClose}>
           X

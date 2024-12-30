@@ -19,7 +19,7 @@ export default function page() {
           {/* Image Section */}
           <div className="relative w-full h-[400px] md:h-full bg-gray-100">
             <Image
-              src="/hero/autovidrios-wcg.png"
+              src="/hero/autovidrios-wcg.webp"
               loading="lazy"
               alt="Equipo Polarizados"
               fill
@@ -32,7 +32,7 @@ export default function page() {
           <div className="p-6 md:p-8 flex flex-col gap-6">
             <div className="space-y-4">
               <p className="text-lg">
-                Autovidrios V&F nace con el proposito de brindarle al mercado colombiano
+                Autovidrios V&F nace con el proposito de brindarle al mercado colombiano{" "}
                 <span className="font-semibold">la mejor calidad y seguridad con los productos para sus vehiculos</span>, cubriendo desde vidrios hasta instalaciones y demás servicios.
               </p>
 

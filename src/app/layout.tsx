@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     siteName: "Autovidrios V&F - World Class Glass",
     images: [
       {
-        url: "https://res.cloudinary.com/djhbeecge/image/upload/v1735539463/obvoonzhyzgkhud5qiwu.png",
+        url: "https://res.cloudinary.com/djhbeecge/image/upload/v1735539463/obvoonzhyzgkhud5qiwu.webp",
         width: 800,
         height: 600,
         alt: "Autovidrios V&F - World Class Glass",

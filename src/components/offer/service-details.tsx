@@ -106,7 +106,7 @@ export default function ServiceDetails({ service }: { service: any }) {
                       intacto frente a intentos de robo o vandalismo.
                     </p>
                     <Image
-                      src={`/global/${"ANTIROBO-DIALOG.png"}`}
+                      src={`/global/${"ANTIROBO-DIALOG.webp"}`}
                       alt={"antirobo"}
                       loading="lazy"
                       width={150}
@@ -131,15 +131,15 @@ export default function ServiceDetails({ service }: { service: any }) {
           <Image
             src={`/global/${
               service.title === "Vidrios para Vehículo"
-                ? "carro-vidrios.png"
+                ? "carro-vidrios.webp"
                 : service.title === "Instalación de vidrios blindados" ||
                   service.title === "Mantenimiento de vehículos blindados" ||
                   service.title === "Polarizados"
-                ? "suv-armored.png"
+                ? "suv-armored.webp"
                 : service.title === "Instalación de Sunroof" ||
                   service.title === "Mantenimiento de Sunroof"
-                ? "sunroof.png"
-                : "carro-vidrios.png"
+                ? "sunroof.webp"
+                : "carro-vidrios.webp"
             }`}
             alt="imagen de vidrios para vehículo"
             loading="lazy"

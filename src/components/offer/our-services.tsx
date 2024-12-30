@@ -33,7 +33,7 @@ const services = [
     description: "Garantizamos acabados perfectos y duraderos mediante nuestro servicio de termofijado profesional.",
   },
   {
-    title: "Polarizado",
+    title: "Polarizados",
     description: "Ofrecemos el servicio de instalación de películas polarizadas de alta calidad, ideales para proteger del sol, mejorar la estética y brindar mayor privacidad a tu vehículo. Garantizamos acabados precisos y duraderos."
   }
 ];

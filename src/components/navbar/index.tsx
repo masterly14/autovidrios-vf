@@ -25,14 +25,14 @@ const NavBarComponent = () => {
       <div className="md:flex hidden justify-between w-full pr-2 pl-4">
         <div className="flex items-center justify-center gap-x-3">
           <Image
-            src={"/logos/Autovidrios-V&F.png"}
+            src={"/logos/Autovidrios-V&F.webp"}
             alt="logo-autovidrios-v&f"
             width={150}
             height={100}
             className="object-cover"
           />
           <Image
-            src={"/logos/wcg.png"}
+            src={"/logos/wcg.webp"}
             alt="logo-wcg"
             width={100}
             height={100}
@@ -105,14 +105,14 @@ const NavBarComponent = () => {
       <div className="md:hidden flex justify-between w-full p-4">
         <div className="flex items-center justify-center gap-x-3">
           <Image
-            src={"/logos/Autovidrios-V&F.png"}
+            src={"/logos/Autovidrios-V&F.webp"}
             alt="logo-autovidrios-v&f"
             width={100}
             height={70}
             className="object-cover"
           />
           <Image
-            src={"/logos/wcg.png"}
+            src={"/logos/wcg.webp"}
             alt="logo-wcg"
             width={80}
             height={50}
@@ -181,14 +181,14 @@ const NavBarComponent = () => {
               <div className="justify-end -mt-28">
                 <div className="flex items-center justify-center gap-x-3">
                   <Image
-                    src={"/logos/Autovidrios-V&F.png"}
+                    src={"/logos/Autovidrios-V&F.webp"}
                     alt="logo-autovidrios-v&f"
                     width={100}
                     height={70}
                     className="object-cover"
                   />
                   <Image
-                    src={"/logos/wcg.png"}
+                    src={"/logos/wcg.webp"}
                     alt="logo-wcg"
                     width={80}
                     height={50}
