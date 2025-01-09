@@ -1,5 +1,8 @@
-import React from 'react';
-import { MapPin } from 'lucide-react';
+import React from "react";
+import { MapPin } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { Button } from "../ui/button";
 
 interface Address {
   id: string;
@@ -12,7 +15,10 @@ interface GoogleMapsLinkProps {
   className?: string;
 }
 
-const GoogleMapsLink: React.FC<GoogleMapsLinkProps> = ({ address, className = '' }) => {
+const GoogleMapsLink: React.FC<GoogleMapsLinkProps> = ({
+  address,
+  className = "",
+}) => {
   const encodedAddress = encodeURIComponent(address.address);
 
   const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
@@ -24,28 +30,51 @@ const GoogleMapsLink: React.FC<GoogleMapsLinkProps> = ({ address, className = ''
         Selecciona una opción para abrir el mapa:
       </h2>
       <div className="flex flex-col space-y-2">
-        <a
-          href={googleMapsUrl}
+        <Link
+          href={
+            address.address === "Cl. 63b #28-25"
+              ? "https://maps.app.goo.gl/ZAafvkFGvp2MkTv76"
+              : googleMapsUrl
+          }
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors duration-200"
+          className="inline-flex items-center transition-colors duration-200"
         >
-          <MapPin className="w-5 h-5 mr-2" />
-          <span>Google Maps: {address.name}</span>
-        </a>
-        <a
+          <Button variant={"outline"} className="p-5">
+            <Image
+              src={"/global/logos-mapas/maps.png"}
+              alt="logo-waze"
+              width={30}
+              height={30}
+            />
+            <span>
+              Abrir en Google Maps: {address.name} - {address.address}{" "}
+              {address.address === "Cl. 63b #28-25" && ""}
+            </span>
+          </Button>
+        </Link>
+        <Link
           href={wazeUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center text-green-600 hover:text-green-800 transition-colors duration-200"
+          className="inline-flex items-center transition-colors duration-200 gap-x-3"
         >
-          <MapPin className="w-5 h-5 mr-2" />
-          <span>Waze: {address.name}</span>
-        </a>
+          <Button variant={"outline"} className="p-5">
+            <Image
+              src={"/global/logos-mapas/waze.png"}
+              alt="logo-waze"
+              width={30}
+              height={30}
+              className="rounded-full"
+            />
+            <span>
+              Abrir en Waze: {address.name} - {address.address}
+            </span>
+          </Button>
+        </Link>
       </div>
     </div>
   );
 };
 
 export default GoogleMapsLink;
-

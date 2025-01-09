@@ -8,14 +8,9 @@ const montserrat = Montserrat({
   subsets: ["latin"],
 });
 export const metadata: Metadata = {
-  title: {
-    default:
-      "Venta de vidrios para carros originales e importados para vehículos",
-    template:
-      "%s - Venta de vidrios originales e importados para vehículos en Bogotá",
-  },
+  title: "Vidrios para vehículo en Bogotá",
   description:
-    "Proporcionamos servicios en venta, instalación y mantenimiento de vidrios para vehículos de todas las marcas en Bogotá.",
+    "Venta, instalación y mantenimiento de vidrios para vehículos de todas las marcas en Bogotá.",
   metadataBase: new URL("https://autovidriosvf.com/"),
   openGraph: {
     title: "Autovidrios V&F - World Class Glass",

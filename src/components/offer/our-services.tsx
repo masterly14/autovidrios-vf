@@ -10,31 +10,38 @@ import ServiceDetails from "./service-details";
 const services = [
   {
     title: "Vidrios para Vehículo",
-    description: "En Autovidrios V&F en conjunto con World Class Glass, manejamos vidrios de primera calidad nacionales o importados. Nos destacamos por tener una importación ultra rápida y eficiente.",
+    description: "En Autovidrios V&F en conjunto con World Class Glass, manejamos vidrios de primera calidad nacionales o importados. Nos destacamos por tener una importación ultra rápida y eficiente y una amplia variedad.",
+    link: "/servicios-productos/vidrios-para-vehiculo",
   },
   {
     title: "Instalación de vidrios blindados",
     description: "Somos expertos en la instalación de vidrios blindados para vehículos de todo tipo. ¡Su seguridad es nuestra prioridad!.",
+    link: "/servicios-productos/instalacion-vidrios-blindados",
   },
   {
     title: "Mantenimiento de vehículos blindados",
     description: "No basta solo con instalar vidrios blindados, también es necesario mantenerlos en óptimas condiciones para garantizar tu seguridad. Por eso en Autovidrios V&F en conjunto con World Class Glass, ofrecemos el servicio de mantenimiento de vehículos blindados para asegurar siempre su protección.",
+    link: "/servicios-productos/instalacion-vehiculos-blindados",
   },
   {
     title: "Instalación de Sunroof",
     description: "Disponemos de apliques decorativos y funcionales para personalizar prendas y accesorios.",
+    link: "/servicios-productos/instalacion-sunroof",
   },
   {
     title: "Mantenimiento de Sunroof",
     description: "Suministramos maquinaria y repuestos esenciales para optimizar procesos de confección.",
+    link: "/servicios-productos/instalacion-sunroof",
   },
   {
     title: "Instalación pelicula Antirobo de 50 micras",
     description: "Garantizamos acabados perfectos y duraderos mediante nuestro servicio de termofijado profesional.",
+    link: "/servicios-productos/instalacion-pelicula-antirobo",
   },
   {
     title: "Polarizados",
-    description: "Ofrecemos el servicio de instalación de películas polarizadas de alta calidad, ideales para proteger del sol, mejorar la estética y brindar mayor privacidad a tu vehículo. Garantizamos acabados precisos y duraderos."
+    description: "Ofrecemos el servicio de instalación de películas polarizadas de alta calidad, ideales para proteger del sol, mejorar la estética y brindar mayor privacidad a tu vehículo. Garantizamos acabados precisos y duraderos.",
+    link: "/servicios-productos/polarizados",
   }
 ];
 

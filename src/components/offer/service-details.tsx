@@ -147,8 +147,8 @@ export default function ServiceDetails({ service }: { service: any }) {
             height={250}
             className="md:h-[420px] h-[250px] w-full overflow-hidden"
           />
-          <Link href={"/contacto"} className="w-[50%]">
-            <Button size={"sm"}>Cotizar para mi vehículo</Button>
+          <Link href={service.link} className="w-[50%]">
+            <Button size={"sm"}>Conocer más</Button>
           </Link>
         </div>
       )}

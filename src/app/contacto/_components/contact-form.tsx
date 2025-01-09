@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
@@ -26,6 +28,8 @@ import {
   ContactFormValues,
 } from "@/lib/validations/contact";
 import { useToast } from "@/hooks/use-toast";
+import { saveContactMessage } from "@/actions";
+import { Loader2 } from 'lucide-react';
 
 const serviceOptions = [
   { value: "vidrio", label: "Vidrio" },
@@ -36,6 +40,9 @@ const serviceOptions = [
 
 export function ContactForm() {
   const { toast } = useToast();
+  const router = useRouter();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: {
@@ -48,19 +55,35 @@ export function ContactForm() {
   });
 
   async function onSubmit(data: ContactFormValues) {
+    setIsSubmitting(true);
     try {
-      // Aquí iría la lógica para enviar el formulario
-      console.log(data);
-
-      toast({
-        title: `Mensaje enviado correctamente, pronto nos pondremos en contacto con usted señor@ ${
-          data.fullName.split(" ")[0]
-        }`,
-      });
+      const response = await saveContactMessage(data);
+      if (response?.status === 200) {
+        toast({
+          title: `Mensaje enviado correctamente, pronto nos pondremos en contacto con usted ${
+            data.fullName.split(" ")[0]
+          }`,
+        });
+        setIsSuccess(true);
+      }
       form.reset();
     } catch (error: any) {
       toast({ title: "Error al enviar el mensaje", description: error.message });
+    } finally {
+      setIsSubmitting(false);
     }
+  }
+
+  if (isSuccess) {
+    return (
+      <div className="text-center space-y-4">
+        <h2 className="text-2xl font-bold">¡Mensaje enviado con éxito!</h2>
+        <p>Gracias por contactarnos. Nos pondremos en contacto pronto.</p>
+        <Button onClick={() => router.push('/')} size="lg">
+          Volver a la página de inicio
+        </Button>
+      </div>
+    );
   }
 
   return (
@@ -151,10 +174,18 @@ export function ContactForm() {
           )}
         />
 
-        <Button type="submit" className="w-full" size="lg">
-          Enviar mensaje
+        <Button type="submit" className="w-full" size="lg" disabled={isSubmitting}>
+          {isSubmitting ? (
+            <>
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+              Enviando...
+            </>
+          ) : (
+            'Enviar mensaje'
+          )}
         </Button>
       </form>
     </Form>
   );
 }
+

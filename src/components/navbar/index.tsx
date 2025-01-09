@@ -1,7 +1,7 @@
 "use client";
 
 import { Facebook, Instagram, Menu } from "lucide-react";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "../ui/button";
 import Image from "next/image";
 import WhatsAppDuoToneBlue from "../icons/whatsapp-icon";
@@ -16,12 +16,18 @@ import {
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import SvgTiktokIcon from "../icons/tiktok-icon";
+import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 
 const NavBarComponent = () => {
   const path = usePathname();
+  const [isSheetOpen, setSheetOpen] = useState(false);
+
+  useEffect(() => {
+    setSheetOpen(false);
+  }, [path]);
 
   return (
-    <div className="top-0 w-full flex h-[100px] md:h-[120px]">
+    <div className="top-0 w-full flex h-[100px] md:h-[120px] bg-black">
       <div className="md:flex hidden justify-between w-full pr-2 pl-4">
         <div className="flex items-center justify-center gap-x-3">
           <Image
@@ -66,14 +72,33 @@ const NavBarComponent = () => {
           >
             Contacto
           </Link>
-          <Link
-            href={"/#productos"}
-            className={`${
-              path === "/productos" ? "text-white" : "text-muted-foreground"
-            } uppercase`}
-          >
-            Productos
-          </Link>
+          <Popover>
+            <PopoverTrigger asChild>
+              <Button className="border-none bg-transparent uppercase">
+                Productos y Servicios
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent>
+              <Link href={"/servicios-productos/vidrios-para-vehiculo"}>
+                Vidrios para vehículo
+              </Link>
+              <div className="h-[1px] rounded-full bg-white w-[160px] mb-2"></div>
+              <Link href={"/servicios-productos/instalacion-sunroof"}>
+                Instalación Sunroof
+              </Link>
+              <div className="h-[1px] rounded-full bg-white w-[160px] mb-2"></div>
+              <Link href={"/servicios-productos/instalacion-vidrios-blindados"}>
+                Vidrios Blindados
+              </Link>
+              <div className="h-[1px] rounded-full bg-white w-[160px] mb-2"></div>
+              <Link href={"/servicios-productos/polarizados"}>Polarizados</Link>
+              <div className="h-[1px] rounded-full bg-white w-[160px] mb-2"></div>
+              <Link href={"/servicios-productos/instalacion-pelicula-antirobo"}>
+                Pelicula Antirobo
+              </Link>
+              <div className="h-[1px] rounded-full bg-white w-[160px] mb-2"></div>
+            </PopoverContent>
+          </Popover>
         </div>
         <div className="flex items-center space-x-4">
           <Link href={"https://wa.link/14qlpa"}>
@@ -126,7 +151,7 @@ const NavBarComponent = () => {
             </Button>
           </Link>
 
-          <Sheet>
+          <Sheet open={isSheetOpen} onOpenChange={setSheetOpen}>
             <SheetTrigger>
               <Menu />
             </SheetTrigger>
@@ -171,12 +196,43 @@ const NavBarComponent = () => {
                 >
                   Contacto
                 </Link>
-                <Link
-                  href={"/#productos"}
-                  className={`${path === "/productos" && "text-white"}`}
-                >
-                  Productos
-                </Link>
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <Button className="border-none bg-transparent">
+                      Productos y Servicios
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent>
+                    <Link href={"/servicios-productos/vidrios-para-vehiculo"}>
+                      Vidrios para vehículo
+                    </Link>
+                    <div className="h-[1px] rounded-full bg-white w-[160px] mb-2"></div>
+                    <Link href={"/servicios-productos/instalacion-sunroof"}>
+                      Instalación Sunroof
+                    </Link>
+                    <div className="h-[1px] rounded-full bg-white w-[160px] mb-2"></div>
+                    <Link
+                      href={
+                        "/servicios-productos/instalacion-vidrios-blindados"
+                      }
+                    >
+                      Vidrios Blindados
+                    </Link>
+                    <div className="h-[1px] rounded-full bg-white w-[160px] mb-2"></div>
+                    <Link href={"/servicios-productos/polarizados"}>
+                      Polarizados
+                    </Link>
+                    <div className="h-[1px] rounded-full bg-white w-[160px] mb-2"></div>
+                    <Link
+                      href={
+                        "/servicios-productos/instalacion-pelicula-antirobo"
+                      }
+                    >
+                      Pelicula Antirobo
+                    </Link>
+                    <div className="h-[1px] rounded-full bg-white w-[160px] mb-2"></div>
+                  </PopoverContent>
+                </Popover>
               </SheetDescription>
               <div className="justify-end -mt-28">
                 <div className="flex items-center justify-center gap-x-3">

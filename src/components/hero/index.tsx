@@ -5,7 +5,7 @@ const carouselItems = [
     imageUrl: "/hero/contenedores.webp",
     text: "Importación de vidrios americanos para vehículo",
     buttonText: "Conocer más",
-    buttonLink: "/contacto",
+    buttonLink: "/servicios-productos/vidrios-para-vehiculo",
     subtitle:
       "Contamos con los mejores vidrios importados de Estados Unidos y nos caracterizamos por entrega rápida. ¡Conoce más!",
   },
@@ -21,7 +21,7 @@ const carouselItems = [
     imageUrl: "/hero/suv-blindada.webp",
     text: "La seguridad es lo primero",
     buttonText: "Conocer más",
-    buttonLink: "/#productos", 
+    buttonLink: "/servicios-productos/instalacion-vidrios-blindados", 
     subtitle:
       "Con nosotros puedes instalar vidrios blindados o, darle mantenimiento a tu vehiculo blindado ¡Conoce más!",
   },
@@ -29,7 +29,7 @@ const carouselItems = [
     imageUrl: "/hero/sunroof.webp",
     text: "Disfruta de la vista",
     buttonText: "Conocer más",
-    buttonLink: "/#productos",
+    buttonLink: "/servicios-productos/instalacion-sunroof",
     subtitle:
       "Instalamos sunroofs de la mejor calidad y con la mejor garantía. ¡Conoce más!",
   },
