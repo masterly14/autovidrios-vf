@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "prisma generate next build",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "postinstall": "prisma generate",
     "generate-sitemap": "ts-node --project tsconfig.json scripts/generate-sitemap.js"
   },
   "type": "module",
