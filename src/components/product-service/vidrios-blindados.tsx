@@ -25,7 +25,7 @@ const ProductPageVidriosBlindados = () => {
     <div className="w-full min-h-screen flex flex-col mx-auto items-center justify-start md:p-0 p-5 text-white">
       <div className="flex flex-col md:flex-row gap-x-10 w-full max-w-6xl mt-10">
         <div className="flex flex-col gap-y-7 md:w-1/2 w-full mb-10 mt-10">
-          <h1>Instalación y venta de vidrios blindados para Vehículos</h1>
+          <h1>Instalación y venta de vidrios blindados para carro</h1>
           <p className="text-gray-300">
             En Autovidrios V&F, en colaboración con World Class Glass, ofrecemos
             un servicio de blindaje de vehículos rápido y confiable. Blindamos
