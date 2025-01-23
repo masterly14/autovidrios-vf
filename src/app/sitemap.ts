@@ -10,43 +10,43 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     { 
       url: 'https://autovidriosvf.com/contacto',
-      lastModified: '2025-01-09',
+      lastModified: '2025-01-22',
       changeFrequency: 'monthly',
       priority: 0.8 
     },
     { 
-      url: 'https://autovidriosvf.com/instalacion-pelicula-antirobo',
-      lastModified: '2025-01-09',
+      url: 'https://autovidriosvf.com/servicios-productos/instalacion-pelicula-antirobo',
+      lastModified: '2025-01-22',
       changeFrequency: 'monthly',
       priority: 0.8 
     },
     { 
-      url: 'https://autovidriosvf.com/instalacion-sunroof',
-      lastModified: '2025-01-09',
+      url: 'https://autovidriosvf.com/servicios-productos/instalacion-sunroof',
+      lastModified: '2025-01-22',
       changeFrequency: 'monthly',
       priority: 0.8 
     },
     { 
-      url: 'https://autovidriosvf.com/instalacion-vidrios-blindados',
-      lastModified: '2025-01-09',
+      url: 'https://autovidriosvf.com/servicios-productos/instalacion-vidrios-blindados',
+      lastModified: '2025-01-22',
       changeFrequency: 'monthly',
       priority: 0.8 
     },
     { 
-      url: 'https://autovidriosvf.com/polarizados',
-      lastModified: '2025-01-09',
+      url: 'https://autovidriosvf.com/servicios-productos/polarizados',
+      lastModified: '2025-01-22',
       changeFrequency: 'monthly',
       priority: 0.8 
     },
     { 
-      url: 'https://autovidriosvf.com/vidrios-para-vehiculo',
-      lastModified: '2025-01-09',
+      url: 'https://autovidriosvf.com/servicios-productos/vidrios-para-vehiculo',
+      lastModified: '2025-01-22',
       changeFrequency: 'monthly',
       priority: 0.8 
     },
     { 
       url: 'https://autovidriosvf.com/sobre-nosotros',
-      lastModified: '2025-01-09',
+      lastModified: '2025-01-22',
       changeFrequency: 'monthly',
       priority: 0.8 
     }
