@@ -15,6 +15,7 @@ const metadata: Metadata = {
   description:
     "Vidrios para vehículo en Bogotá, expertos en la instalación de vidrios para vehículo, manejamos los mejores vidrios del mercado. Con más de 10 años de experiencia, Autovidrios V&F en conjunto con World Class Glass manejamos vidrios originales e importados",
 };
+
 const page = () => {
   return (
     <div className="w-full flex flex-col items-center justify-center">
@@ -145,3 +146,4 @@ const page = () => {
 };
 
 export default page;
+ 

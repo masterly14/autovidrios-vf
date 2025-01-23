@@ -25,15 +25,17 @@ const ProductPageVidriosBlindados = () => {
     <div className="w-full min-h-screen flex flex-col mx-auto items-center justify-start md:p-0 p-5 text-white">
       <div className="flex flex-col md:flex-row gap-x-10 w-full max-w-6xl mt-10">
         <div className="flex flex-col gap-y-7 md:w-1/2 w-full mb-10 mt-10">
-          <h1>
-            Instalación y venta de vidrios blindados de Sunroof para
-            Vehículos
-          </h1>
+          <h1>Instalación y venta de vidrios blindados para Vehículos</h1>
           <p className="text-gray-300">
-            En Autovidrios V&F, en alianza con World Class Glass, somos los
-            expertos en instalación y comercialización de vidrios blindados para vehículos, con más de 10 años de
-            experiencia. 
+            En Autovidrios V&F, en colaboración con World Class Glass, ofrecemos
+            un servicio de blindaje de vehículos rápido y confiable. Blindamos
+            tu carro en tan solo 15 días con niveles de protección{" "}
+            <span className="font-bold">2 o 2 Plus</span>, garantizando
+            seguridad y calidad. Contáctanos hoy mismo para obtener más
+            información sobre nuestro proceso de blindaje y cómo podemos
+            proteger tu vehículo.
           </p>
+
           <Link href="/contacto">
             <Button size="lg">Cotizar ahora</Button>
           </Link>
@@ -65,11 +67,27 @@ const ProductPageVidriosBlindados = () => {
                 <CardContent>
                   {tipo === "Instalación" ? (
                     <p>
-                      En Autovidrios V&F en conjunto con World Class Glass, somos expertos en la instalación de vidrios blindados para vehículo. La calidad en la instalación es nuestra prioridad. Nuestro equipo experto se encarga de cada detalle, desde el ajuste preciso hasta la fijación segura, asegurando que tu vidrio esté instalado con la máxima precisión y profesionalismo para garantizar tu seguridad.
+                      En Autovidrios V&F en conjunto con World Class Glass,
+                      somos expertos en la instalación de vidrios blindados para
+                      vehículo. La calidad en la instalación es nuestra
+                      prioridad. Blindamos tu carro en tan solo 15 días con
+                      niveles de protección{" "}
+                      <span className="font-bold">2 o 2 Plus</span>,
+                      garantizando seguridad y calidad. Contáctanos hoy mismo
+                      para obtener más información sobre nuestro proceso de
+                      blindaje y cómo podemos proteger tu vehículo.
                     </p>
                   ) : tipo === "Mantenimiento" ? (
                     <p>
-                      En world Class Glass tambien damos mantenimiento a vehiculos blindados, ofrecemos servicios de reparación y reemplazo de vidrios blindados para vehículos. Nuestro equipo de expertos está capacitado para brindar un servicio de calidad y garantizar la seguridad de tu vehículo. Contamos con una amplia gama de vidrios blindados para vehículos de todas las marcas y modelos, para que puedas encontrar el vidrio que mejor se adapte a tus necesidades.
+                      En world Class Glass tambien damos mantenimiento a
+                      vehiculos blindados, ofrecemos servicios de reparación y
+                      reemplazo de vidrios blindados para vehículos. Nuestro
+                      equipo de expertos está capacitado para brindar un
+                      servicio de calidad y garantizar la seguridad de tu
+                      vehículo. Contamos con una amplia gama de vidrios
+                      blindados para vehículos de todas las marcas y modelos,
+                      para que puedas encontrar el vidrio que mejor se adapte a
+                      tus necesidades.
                     </p>
                   ) : (
                     <p></p>
@@ -107,7 +125,7 @@ const ProductPageVidriosBlindados = () => {
           {[
             {
               q: "¿Cuánto tiempo toma la instalación?",
-              a: "La instalación depende del modelo de su vehículo y el tipo de servicio seleccionado. Realizamos el trabajo en el mismo día con cita previa.",
+              a: "La instalación depende del modelo de su vehículo y el tipo de servicio seleccionado. Algunas instalaciones se pueden realizar el mismo día y otras pueden tomar hasta 15 días.",
             },
             {
               q: "¿La instalación afecta la garantía del vehículo?",
@@ -131,7 +149,8 @@ const ProductPageVidriosBlindados = () => {
           <CardHeader>
             <CardTitle>¿Desea transformar su vehículo?</CardTitle>
             <CardDescription>
-            Solicite ahora su cotización personalizada y reciba asesoría de nuestros expertos certificados.
+              Solicite ahora su cotización personalizada y reciba asesoría de
+              nuestros expertos certificados.
             </CardDescription>
           </CardHeader>
           <CardContent>
