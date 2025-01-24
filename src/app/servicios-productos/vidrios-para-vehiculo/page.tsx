@@ -11,11 +11,11 @@ import { Metadata } from "next";
 import BackgroundImageWithText from "@/components/image-vidrios-vehiculo";
 
 const metadata: Metadata = {
-  title: "Vidrios y parabrisas para vehículo en Bogotá",
+  title: "Vidrios y parabrisas para carro en Bogotá",
   description:
     "Vidrios para carro en Bogotá, expertos en la instalación de vidrios para carro, manejamos los mejores vidrios del mercado. Con más de 20 años de experiencia, Autovidrios V&F en conjunto con World Class Glass manejamos vidrios originales e importados",
 };
-
+ 
 const page = () => {
   return (
     <div className="w-full flex flex-col items-center justify-center">
