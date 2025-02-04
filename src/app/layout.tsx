@@ -8,7 +8,7 @@ const montserrat = Montserrat({
   subsets: ["latin"],
 });
 export const metadata: Metadata = {
-  title: "Vidrios para vehículo en Bogotá",
+  title: "Vidrios para vehículo",
   description:
     "Venta, instalación y mantenimiento de vidrios para vehículos de todas las marcas en Bogotá.",
   metadataBase: new URL("https://autovidriosvf.com/"),
