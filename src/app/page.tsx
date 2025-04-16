@@ -7,6 +7,7 @@ import { HeroParallaxDemo } from "@/components/hero-parallax/component";
 import MainLocation from "@/components/location";
 import OurServices from "@/components/offer/our-services";
 import Testimonials from "@/components/testimonial/testimonial-section";
+import VoiceBotWidget from "@/components/voicebot";
 import { WorldMapDemo } from "@/components/world-map/component";
 
 export default function Home() {
@@ -21,7 +22,7 @@ export default function Home() {
       <div className="mb-10">
         <MainLocation />
       </div>
-      <Chatbot />
+      <VoiceBotWidget />
     </div>
   );
 }
