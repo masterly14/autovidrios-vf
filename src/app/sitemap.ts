@@ -8,6 +8,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'daily',
       priority: 1.0 
     },
+    {
+      url: 'https://autovidriosvf.com/mejores-vidrios-del-mercado',
+      lastModified: '2025-04-16',
+      changeFrequency: 'never',
+      priority: 1.0
+    },
     { 
       url: 'https://autovidriosvf.com/contacto',
       lastModified: '2025-01-22',
