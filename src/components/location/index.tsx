@@ -21,7 +21,7 @@ const options = [
     label: "Nueva Sede",
     image: "/global/nueva_sede.png",
     info: "Información para la Dirección 1",
-    name: "Nueva Sede",
+    name: "Sede nueva",
     adress: "Calle 64 #28-46",
   },
   {
