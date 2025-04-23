@@ -3,11 +3,11 @@ import ImageCarousel from "./carousel";
 const carouselItems = [
   {
     imageUrl: "/hero/contenedores.webp",
-    text: "Importación de vidrios americanos para vehículo",
+    text: "Vidrios para carro",
     buttonText: "Conocer más",
     buttonLink: "/servicios-productos/vidrios-para-vehiculo",
     subtitle:
-      "Contamos con los mejores vidrios importados de Estados Unidos y nos caracterizamos por entrega rápida. ¡Conoce más!",
+      "Contamos con los mejores vidrios para vehículo del mercado. Calidad, garantía y profesionalismo. ¡Conoce más!",
   },
   {
     imageUrl: "/hero/autovidrios-wcg.webp",
