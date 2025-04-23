@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import React from "react";
 
 export const metadata: Metadata = {
-  title: "Polarizados para Carros y Vehículos en Bogotá | Instalación Profesional",
+  title: "Polarizados Bogotá - Polarizar carro - Polarizar vidrios de vehículo en Bogotá - Polarizar vehículo en Bogotá",
   description:
     "Nuestro equipo experto ofrece soluciones de polarizado personalizadas para su vehículo, garantizando un ajuste perfecto y un acabado perfecto.",
   keywords: [

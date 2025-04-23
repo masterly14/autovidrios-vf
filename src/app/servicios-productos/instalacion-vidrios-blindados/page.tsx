@@ -4,7 +4,7 @@ import React from 'react'
 
 export const metadata: Metadata = {
   title:
-    "Vidrios blindados para carro en Bogotá",
+    "Vidrios blindados para carro en Bogotá - Blindar carro Bogotá - Vidrios para vehículo Bogotá",
   description:
     "Instalación y venta de vidrios blindados para carro en Bogotá. Expertos en instalación de vidrios blindados con más de 20 años de experiencia.",
   keywords: [

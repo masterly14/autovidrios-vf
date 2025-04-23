@@ -4,7 +4,7 @@ import React from 'react'
 
 export const metadata: Metadata = {
     title:
-      "Pelicula antirobo para auto en Bogotá",
+      "Pelicula antirobo para auto en Bogotá | Protección para vehículo en Bogotá",
     description:
       "Instalación de pelicula antirobo para vehículo en Bogotá. Expertos en instalación de vidrios blindados con más de 10 años de experiencia.",
     keywords: [

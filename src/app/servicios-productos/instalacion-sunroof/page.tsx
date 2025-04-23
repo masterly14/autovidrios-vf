@@ -4,7 +4,7 @@ import React from "react";
 
 export const metadata: Metadata = {
   title:
-    "Instalación de Sunroof en Bogotá | Expertos en Techos Panorámicos | Autovidrios V&F",
+    "Sunroof en Bogotá | Techos Panorámicos bogotá | Mantenimiento de sunroof en Bogotá",
   description:
     "Instalación de sunroof corredizos, panorámicos y abatibles para vehículos en Bogotá. Expertos en instalación de sunroof con más de 10 años de experiencia.",
   keywords: [
