@@ -22,7 +22,6 @@ export default function Home() {
       <div className="mb-10">
         <MainLocation />
       </div>
-      <VoiceBotWidget />
     </div>
   );
 }
