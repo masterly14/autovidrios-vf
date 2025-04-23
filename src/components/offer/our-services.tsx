@@ -10,38 +10,37 @@ import ServiceDetails from "./service-details";
 const services = [
   {
     title: "Vidrios para Vehículo",
-    description: "En Autovidrios V&F en conjunto con World Class Glass, manejamos vidrios de primera calidad nacionales o importados. Nos destacamos por tener una importación ultra rápida y eficiente y una amplia variedad.",
+    description: "Vidrios nacionales para vehículo. Vidrios importados para vehículo. Nos destacamos por tener una importaciones rápidad y eficientes de vidrios para vehículo..",
     link: "/servicios-productos/vidrios-para-vehiculo",
   },
   {
-    title: "Instalación de vidrios blindados",
-    description: "Somos expertos en la instalación de vidrios blindados para vehículos de todo tipo. ¡Su seguridad es nuestra prioridad!.",
+    title: "Vidrios blindados para vehículo",
+    description: "Instalación de vidrios blindados para carro. ¡Su seguridad es nuestra prioridad!.",
     link: "/servicios-productos/instalacion-vidrios-blindados",
   },
   {
-    title: "Mantenimiento de vehículos blindados",
-    description: "No basta solo con instalar vidrios blindados, también es necesario mantenerlos en óptimas condiciones para garantizar tu seguridad. Por eso en Autovidrios V&F en conjunto con World Class Glass, ofrecemos el servicio de mantenimiento de vehículos blindados para asegurar siempre su protección.",
+    title: "Mantenimiento de vidrios blindados para carro.",
+    description: "No basta solo con instalar vidrios blindados para su carro, también es necesario mantenerlos en óptimas condiciones para garantizar su seguridad. Servicio de mantenimiento de vehículos blindados para asegurar siempre su protección.",
     link: "/servicios-productos/instalacion-vehiculos-blindados",
   },
   {
-    title: "Instalación de Sunroof",
-    description: "Disponemos de apliques decorativos y funcionales para personalizar prendas y accesorios.",
+    title: "Sunroof para vehículo.",
+    description: "Sunroof para carro. Brindamos servicio de instalación y mantenimiento de Sunroof para su vehículo.",
     link: "/servicios-productos/instalacion-sunroof",
   },
   {
-    title: "Mantenimiento de Sunroof",
-    description: "Suministramos maquinaria y repuestos esenciales para optimizar procesos de confección.",
+    title: "Mantenimiento de sunroof",
+    description: "Sunroof para carro. Brindamos servicio de instalación y mantenimiento de Sunroof para su vehículo.",
     link: "/servicios-productos/instalacion-sunroof",
   },
   {
-    title: "Instalación pelicula Antirobo de 50 micras",
-    description: "Garantizamos acabados perfectos y duraderos mediante nuestro servicio de termofijado profesional.",
+    title: "Película antirrobo para vehículo.",
+    description: "Instalamos película de seguridad antirrobo de 50 micras para vehículos, ideal para reforzar los vidrios contra intentos de robo. Nuestro servicio incluye termofijado profesional para garantizar una instalación precisa, duradera y con acabados de alta calidad. Proteja su vehículo con tecnología de seguridad avanzada.",
     link: "/servicios-productos/instalacion-pelicula-antirobo",
   },
   {
-    title: "Polarizados",
-    description: "Ofrecemos el servicio de instalación de películas polarizadas de alta calidad, ideales para proteger del sol, mejorar la estética y brindar mayor privacidad a tu vehículo. Garantizamos acabados precisos y duraderos.",
-    link: "/servicios-productos/polarizados",
+    title: "Polarizados para vehículos",
+    description: "Servicio profesional de instalación de películas polarizadas para carros. Proteja su vehículo del sol, reduzca el calor interior y mejore la privacidad y estética. Usamos polarizados de alta calidad con protección UV y acabados precisos. ¡Ideal para mayor confort y seguridad en la vía!",
   }
 ];
 

@@ -4,35 +4,36 @@ import { Card, CardContent, CardFooter } from "@/components/ui/card";
 const testimonials = [
   {
     name: "María García",
-    text: "Sin duda alguna, recomiendo al 100% a Autovidrios V&F. Desde la asesoría que me brindaron hasta la atención por parte de su personal, me ayudaron a blindar los vidrios de mi vehículo de acuerdo a lo que necesitaba específicamente. Totalmente recomendado.",
+    text: "Recomiendo al 100% a Autovidrios V&F por su servicio de instalación de vidrios blindados para vehículos. Me brindaron asesoría personalizada y una atención excelente. La calidad del blindaje y la instalación superó mis expectativas. ¡Servicio profesional y confiable!",
     rating: 5,
   },
   {
     name: "Juan Pérez",
-    text: "Desde el primer momento me ayudaron con todos los mínimos detalles sobre lo que le realizaron a mi vehículo. Hasta el momento, llevo 1 año con el panorámico delantero y trasero que ellos me instalaron. No he tenido el más mínimo inconveniente.",
+    text: "Autovidrios V&F instaló el panorámico delantero y trasero de mi carro hace un año y siguen en perfecto estado. Excelente calidad en vidrios automotrices importados y un servicio técnico muy detallado. ¡Altamente recomendados!",
     rating: 5,
   },
   {
     name: "Ana Martínez",
-    text: "Los muchachos de Autovidrios V&F se esfuerzan por brindar un servicio de calidad. Desde el primer momento que llegué a sus instalaciones, me brindaron la mejor atención y me ayudaron a elegir el vidrio que mejor se adaptaba a mi vehículo. Sin duda alguna, los recomiendo.",
+    text: "Desde que llegué a Autovidrios V&F, me asesoraron sobre qué tipo de vidrio era ideal para mi vehículo. La instalación fue profesional y rápida. Es una empresa seria en el servicio de vidrios para carro. Muy satisfechos con su trabajo.",
     rating: 5,
   },
   {
     name: "Carlos Rodríguez",
-    text: "Los vidrios que manejan en Autovidrios V&F son de la mejor calidad. Me ayudaron a elegir el vidrio que mejor se adaptaba a mi vehículo, y la importación fue muy rápida. La verdad, quedé muy satisfecho con su servicio.",
+    text: "Los vidrios que manejan en Autovidrios V&F son importados de excelente calidad. El proceso de importación fue ágil y me ofrecieron una instalación de vidrios muy profesional. ¡Todo quedó perfecto!",
     rating: 5,
   },
   {
     name: "Laura Sánchez",
-    text: "Los tiempos de importación son bastante rápidos, y la calidad ni hablar. Los trabajadores de Autovidrios V&F son muy amables y atentos.",
+    text: "Estoy muy contenta con el polarizado de mi vehículo. Autovidrios V&F me ofreció polarizados de alta calidad, con protección solar y excelente acabado. Además, el equipo fue muy atento durante todo el proceso.",
     rating: 5,
   },
   {
     name: "Santiago Ramírez",
-    text: "La experiencia con Autovidrios V&F fue excelente. Me explicaron todo el proceso de instalación de los vidrios de mi camioneta y se aseguraron de que todo quedara perfecto. La calidad de los materiales es increíble, y el equipo fue muy profesional en todo momento. Definitivamente volvería a confiar en ellos.",
+    text: "La experiencia fue excelente. Me instalaron vidrios blindados en mi camioneta con un proceso muy bien explicado y materiales de primera. El equipo técnico de Autovidrios V&F es muy profesional. Recomiendo sus servicios sin dudarlo.",
     rating: 5,
   },
 ];
+
 
 
 export default function Testimonials() {

@@ -6,9 +6,9 @@ export function WorldMapDemo() {
     <div className="py-8 md:mt-0 pt-20 dark:bg-black bg-white w-full">
       <div className="max-w-7xl mx-auto text-center">
         <p className="font-bold text-xl md:text-4xl text-black">
-          Importadores
+          Vidrios para vehículo
           <span className="text-neutral-400 font-bold">
-            {" "}directos de vidrios para vehículo
+            {" "}
           </span>
         </p>
         <p className="text-sm md:text-lg text-neutral-500 max-w-2xl mx-auto py-4">

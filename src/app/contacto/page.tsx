@@ -4,8 +4,8 @@ import { ContactForm } from './_components/contact-form'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Venta de vidrios originales e importados para vehículos en Bogotá',
-  description: "Dejanos un mensaje y nos pondremos en contacto contigo lo antes posible para ayudarte con tu solicitud. Autovidrios V&F - World Class Glass."
+  title: 'Vidrios para vehículo en Bogotá | Vidrios para carro Bogotá | Parabrisas para carro',
+  description: "Vidrios para carro Bogotá | Cotizar vidrios para vehículo Bogotá | Parabrisas para vehículo en Bogotá"
 }
 const page = () => {
   return (

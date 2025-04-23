@@ -57,7 +57,7 @@ export default function AutoCarousel() {
       <div className="flex flex-col items-center justify-center mt-10">
         <div>
           <h1 className="text-2xl text-white text-center font-bold mt-2">
-            Trabajamos con las mejores márcas de carros del{" "}
+            Tenemos los mejores vidrios de vehículo. Contamos con las mejores márcas de carros del{" "}
             <span className="bg-muted-foreground rounded-md">mercado</span>
           </h1>
         </div>
@@ -93,11 +93,9 @@ export default function AutoCarousel() {
         </motion.div>
         <div>
           <p className="p-2 text-center">
-            Te ofrecemos referencias en vidrios para vehículo {" "}
-            <span className="underline font-bold">importadas</span> o{" "}
-            <span className="underline font-bold">nacionales</span>. Brindandote
-            la mejor calidad y comodidad en cada uno de nuestros vidrios y
-            servicios
+            Te ofrecemos vidrios para vehículo {" "}. Tenemos
+            <span className="underline font-bold">importados</span> o{" "}
+            <span className="underline font-bold">nacionales</span>. Brindadote vidrios de carro de calidad.
           </p>
         </div>
       </div>
