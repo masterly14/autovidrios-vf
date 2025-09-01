@@ -65,6 +65,14 @@ const NavBarComponent = () => {
             Sobre nosotros
           </Link>
           <Link
+            href={"/blog"}
+            className={`${
+              path === "/blog" ? "text-white" : "text-muted-foreground"
+            } uppercase`}
+          >
+            Blog
+          </Link>
+          <Link
             href={"/contacto"}
             className={`${
               path === "/contacto" ? "text-white" : "text-muted-foreground"
@@ -189,6 +197,12 @@ const NavBarComponent = () => {
                   className={`${path === "/sobre-nosotros" && "text-white"}`}
                 >
                   Sobre nosotros
+                </Link>
+                <Link
+                  href={"/blog"}
+                  className={`${path === "/blog" && "text-white"}`}
+                >
+                  Blog
                 </Link>
                 <Link
                   href={"/contacto"}

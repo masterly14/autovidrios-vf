@@ -22,3 +22,20 @@ model ContactMessage {
   message    String   // Mensaje enviado
   createdAt  DateTime @default(now()) // Fecha de creación del mensaje
 }
+
+model BlogPost {
+  id              Int      @id @default(autoincrement())
+  slug            String   @unique // URL amigable, ej: "como-cambiar-un-parabrisas"
+  title           String   // Título principal del artículo
+  content         String   @db.Text // Contenido del artículo, en formato Markdown o HTML
+  imageUrl        String   // URL de la imagen principal del artículo
+  author          String   @default("Autovidrios V&F")
+  published       Boolean  @default(false) // Para controlar si es un borrador o está publicado
+  
+  // Campos específicos para SEO
+  metaTitle       String
+  metaDescription String
+
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
