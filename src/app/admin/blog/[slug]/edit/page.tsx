@@ -3,11 +3,12 @@ import { notFound } from "next/navigation";
 import BlogEditor from "../../new/_components/blog-editor";
 
 
-export default async function EditPostPage({ params }: { params: { slug: string } }) {
+export default async function EditPostPage({ params }: { params: Promise<{ slug: string }> }) {
 
+    const { slug } = await params;
     const post = await db.blogPost.findUnique({
         where: {
-            slug: params.slug
+            slug: slug
         }
     });
 

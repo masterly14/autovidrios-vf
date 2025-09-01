@@ -3,16 +3,15 @@ import { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
-type BlogPostPageProps = {
-  params: {
-    slug: string;
-  };
+type PageProps = {
+  params: Promise<{ slug: string }>;
 };
 
 // Generate dynamic metadata for SEO
-export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
   const post = await db.blogPost.findUnique({
-    where: { slug: params.slug, published: true },
+    where: { slug: slug, published: true },
   });
 
   if (!post) {
@@ -36,9 +35,10 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   };
 }
 
-export default async function BlogPostPage({ params }: BlogPostPageProps) {
+export default async function BlogPostPage({ params }: PageProps) {
+  const { slug } = await params;
   const post = await db.blogPost.findUnique({
-    where: { slug: params.slug, published: true },
+    where: { slug: slug, published: true },
   });
 
   if (!post) {
