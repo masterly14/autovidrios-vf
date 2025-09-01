@@ -3,13 +3,7 @@ import { notFound } from "next/navigation";
 import BlogEditor from "../../new/_components/blog-editor";
 
 
-interface EditPostPageProps {
-    params: {
-        slug: string;
-    }
-}
-
-export default async function EditPostPage({ params }: EditPostPageProps) {
+export default async function EditPostPage({ params }: { params: { slug: string } }) {
 
     const post = await db.blogPost.findUnique({
         where: {
@@ -23,7 +17,7 @@ export default async function EditPostPage({ params }: EditPostPageProps) {
 
     return (
         <div>
-            <BlogEditor/>
+            <BlogEditor post={post} />
         </div>
     )
 }
