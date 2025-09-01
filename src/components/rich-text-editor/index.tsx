@@ -1,35 +1,32 @@
 "use client";
 
-import dynamic from "next/dynamic";
-import "react-quill/dist/quill.snow.css";
-import { useMemo } from "react";
+import { Textarea } from "@/components/ui/textarea";
 
-interface RichTextEditorProps {
-    value: string;
-    onChange: (value: string) => void;
-    placeholder?: string;
+interface PlainTextEditorProps {
+  value: string;
+  onChange: (value: string) => void;
+  placeholder?: string;
+  /**
+   * Nombre del campo para que se incluya en FormData al enviar el formulario.
+   * Por ejemplo: "content".
+   */
+  name?: string;
 }
 
-export default function RichTextEditor({ value, onChange, placeholder }: RichTextEditorProps) {
-    const ReactQuill = useMemo(() => dynamic(() => import('react-quill'), { ssr: false }),[]);
-
-    const modules = {
-        toolbar: [
-          [{ 'header': [1, 2, 3, false] }],
-          ['bold', 'italic', 'underline', 'strike'],
-          [{'list': 'ordered'}, {'list': 'bullet'}],
-          ['link'],
-          ['clean']
-        ],
-    };
-
-    return (
-        <ReactQuill 
-            theme="snow" 
-            value={value} 
-            onChange={onChange}
-            modules={modules}
-            placeholder={placeholder}
-        />
-    )
+/*
+ * Editor reducido a un <textarea> controlado.  
+ * – Sin lógica de formato ni dependencias externas.  
+ * – Mantiene altura mínima y estilos coherentes con Tailwind.  
+ */
+export default function PlainTextEditor({ value, onChange, placeholder, name }: PlainTextEditorProps) {
+  return (
+    <Textarea
+      name={name}
+      value={value}
+      onChange={(e) => onChange(e.target.value)}
+      placeholder={placeholder ?? "Escribe aquí…"}
+      className="min-h-[200px]"
+      required
+    />
+  );
 }

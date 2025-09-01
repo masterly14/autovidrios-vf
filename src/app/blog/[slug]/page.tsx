@@ -2,6 +2,7 @@ import db from "@/lib/db";
 import { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import sanitizeHtml from "sanitize-html";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -73,7 +74,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
       <div
         className="prose lg:prose-xl max-w-none"
-        dangerouslySetInnerHTML={{ __html: post.content }}
+        dangerouslySetInnerHTML={{ __html: sanitizeHtml(post.content) }}
       />
     </article>
   );

@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useFormState, useFormStatus } from "react-dom";
+import { useActionState } from "react";
+import { useFormStatus } from "react-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -52,7 +53,7 @@ export default function BlogEditor({ post }: BlogEditorProps) {
   const isEditing = !!post;
 
   const action = isEditing ? updateBlogPost.bind(null, post.id) : createBlogPost;
-  const [state, formAction] = useFormState(action, initialState);
+  const [state, formAction] = useActionState(action, initialState);
   
   const [title, setTitle] = useState(post?.title || "");
   const [content, setContent] = useState(post?.content || "");
@@ -125,6 +126,7 @@ export default function BlogEditor({ post }: BlogEditorProps) {
       <div className="space-y-2">
         <Label htmlFor="content">Contenido del Artículo</Label>
         <RichTextEditor
+            name="content"
             placeholder="Escribe aquí el contenido del artículo..."
             value={content}
             onChange={setContent}
@@ -135,7 +137,7 @@ export default function BlogEditor({ post }: BlogEditorProps) {
         {state.errors?.content && <p className="text-red-500 text-sm">{state.errors.content[0]}</p>}
       </div>
       
-      <div className="p-6 border rounded-lg bg-gray-50 space-y-6">
+      <div className="p-6 border rounded-lg space-y-6">
         <h2 className="text-xl font-semibold">Optimización SEO (Automático)</h2>
         <p className="text-sm text-muted-foreground">
           Estos campos se generan automáticamente, pero puedes ajustarlos para mejorar el SEO.
