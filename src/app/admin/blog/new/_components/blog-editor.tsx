@@ -10,6 +10,7 @@ import { Switch } from "@/components/ui/switch";
 import { createBlogPost, updateBlogPost, FormState } from "@/actions/blog";
 import { toast } from "@/hooks/use-toast";
 import { BlogPost } from "@prisma/client";
+import RichTextEditor from "@/components/rich-text-editor";
 
 // Función para generar un slug a partir de un texto
 const slugify = (text: string): string => {
@@ -123,17 +124,13 @@ export default function BlogEditor({ post }: BlogEditorProps) {
 
       <div className="space-y-2">
         <Label htmlFor="content">Contenido del Artículo</Label>
-        <Textarea
-          id="content"
-          name="content"
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-          placeholder="Escribe aquí el contenido del artículo. Puedes usar HTML."
-          rows={20}
-          required
+        <RichTextEditor
+            placeholder="Escribe aquí el contenido del artículo..."
+            value={content}
+            onChange={setContent}
         />
         <p className="text-sm text-muted-foreground">
-          Puedes usar etiquetas HTML para formatear el texto (ej: &lt;h2&gt;, &lt;p&gt;, &lt;strong&gt;).
+          Selecciona el texto para aplicar formatos como <strong>negrita</strong>, <em>cursiva</em> o encabezados.
         </p>
         {state.errors?.content && <p className="text-red-500 text-sm">{state.errors.content[0]}</p>}
       </div>
