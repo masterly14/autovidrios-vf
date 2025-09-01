@@ -19,7 +19,7 @@ const slugify = (text: string): string => {
     .trim()
     .replace(/\s+/g, "-") // Reemplazar espacios con -
     .replace(/[^\w-]+/g, "") // Eliminar caracteres no alfanuméricos excepto -
-    .replace(/--+/g, "-"); // Reemplazar múltiples - con uno solo
+    .replace(/--+/g, "-"); 
 };
 
 // Función para generar una meta descripción a partir del contenido
