@@ -105,10 +105,10 @@ export async function getDashboardStats() {
     });
 
     // Calcular porcentajes de cambio
-    const totalSales = currentMonthSales._sum.total || 0;
-    const lastTotalSales = lastMonthSales._sum.total || 0;
+    const totalSales = Number(currentMonthSales._sum.total ?? 0);
+    const lastTotalSales = Number(lastMonthSales._sum.total ?? 0);
     const salesChange = lastTotalSales > 0
-      ? ((Number(totalSales) - Number(lastTotalSales)) / Number(lastTotalSales)) * 100
+      ? ((totalSales - lastTotalSales) / lastTotalSales) * 100
       : 0;
 
     const ordersChange = lastMonthOrders > 0
