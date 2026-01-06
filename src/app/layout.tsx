@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
-import NavBarComponent from "@/components/navbar";
-import Footer from "@/components/footer";
+import LayoutWrapper from "@/components/layout-wrapper";
+import { Toaster } from "@/components/ui/toaster";
 import Script from "next/script";
 
 const montserrat = Montserrat({
@@ -92,9 +92,8 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <NavBarComponent />
-        {children}
-        <Footer />
+        <LayoutWrapper>{children}</LayoutWrapper>
+        <Toaster />
       </body>
     </html>
   );

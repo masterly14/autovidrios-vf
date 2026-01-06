@@ -13,29 +13,279 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// =========================
+// ENUMS
+// =========================
+
+enum GlassType {
+  PARABRISAS
+  PANORAMICO
+  LUNETA
+  LATERAL
+  CUSTODIO
+  OTRO
+}
+
+enum InventoryStatus {
+  IN_STOCK
+  RESERVED
+  SOLD
+  DAMAGED
+  RETURNED
+}
+
+enum SaleStatus {
+  DRAFT
+  COMPLETED
+  CANCELLED
+  REFUNDED
+}
+
+enum PaymentMethod {
+  CASH
+  CARD
+  TRANSFER
+  OTHER
+}
+
+enum InvoiceStatus {
+  PENDING
+  SENT
+  ACCEPTED
+  REJECTED
+  VOID
+}
+
 model ContactMessage {
-  id         Int      @id @default(autoincrement()) // Identificador único
-  service    String   // Servicio de interés
-  fullName   String   // Nombre completo del remitente
-  email      String   // Correo electrónico
-  phone      String   // Número de teléfono
-  message    String   // Mensaje enviado
-  createdAt  DateTime @default(now()) // Fecha de creación del mensaje
+  id        Int      @id @default(autoincrement()) // Identificador único
+  service   String // Servicio de interés
+  fullName  String // Nombre completo del remitente
+  email     String // Correo electrónico
+  phone     String // Número de teléfono
+  message   String // Mensaje enviado
+  createdAt DateTime @default(now()) // Fecha de creación del mensaje
 }
 
 model BlogPost {
-  id              Int      @id @default(autoincrement())
-  slug            String   @unique // URL amigable, ej: "como-cambiar-un-parabrisas"
-  title           String   // Título principal del artículo
-  content         String   @db.Text // Contenido del artículo, en formato Markdown o HTML
-  imageUrl        String   // URL de la imagen principal del artículo
-  author          String   @default("Autovidrios V&F")
-  published       Boolean  @default(false) // Para controlar si es un borrador o está publicado
-  
+  id        Int     @id @default(autoincrement())
+  slug      String  @unique // URL amigable, ej: "como-cambiar-un-parabrisas"
+  title     String // Título principal del artículo
+  content   String  @db.Text // Contenido del artículo, en formato Markdown o HTML
+  imageUrl  String // URL de la imagen principal del artículo
+  author    String  @default("Autovidrios V&F")
+  published Boolean @default(false) // Para controlar si es un borrador o está publicado
+
   // Campos específicos para SEO
   metaTitle       String
   metaDescription String
 
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// =========================
+// CATALOGO (MARCAS / PRODUCTOS)
+// =========================
+
+model VehicleMake {
+  id        Int            @id @default(autoincrement())
+  name      String         @unique
+  models    VehicleModel[]
+  products  GlassProduct[]
+  createdAt DateTime       @default(now())
+  updatedAt DateTime       @updatedAt
+}
+
+model VehicleModel {
+  id       Int            @id @default(autoincrement())
+  makeId   Int
+  name     String
+  make     VehicleMake    @relation(fields: [makeId], references: [id], onDelete: Restrict)
+  products GlassProduct[]
+
+  // Rango opcional de años de compatibilidad (útil para filtros)
+  yearFrom Int?
+  yearTo   Int?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([makeId, name])
+  @@index([makeId])
+}
+
+model GlassProduct {
+  id        Int       @id @default(autoincrement())
+  sku       String    @unique
+  glassType GlassType
+
+  // Marca/modelo del vehículo al que aplica (catálogo por marcas)
+  makeId  Int
+  modelId Int?
+  make    VehicleMake   @relation(fields: [makeId], references: [id], onDelete: Restrict)
+  model   VehicleModel? @relation(fields: [modelId], references: [id], onDelete: SetNull)
+
+  // Identificadores comunes en el rubro (opcionales)
+  oemCode     String?
+  description String?
+
+  // Precios de referencia (la venta puede registrar un precio distinto)
+  listPrice Decimal? @db.Decimal(12, 2)
+  currency  String   @default("COP")
+
+  inventory InventoryItem[]
+
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([makeId, glassType])
+  @@index([modelId])
+  @@index([glassType])
+}
+
+// =========================
+// INVENTARIO (VIDRIO ESPECÍFICO)
+// =========================
+
+model InventoryItem {
+  id        Int          @id @default(autoincrement())
+  productId Int
+  product   GlassProduct @relation(fields: [productId], references: [id], onDelete: Restrict)
+
+  // Identificador del vidrio físico (serial/lote). Recomendado para trazabilidad.
+  serialNumber String? @unique
+  lotNumber    String?
+
+  status   InventoryStatus @default(IN_STOCK)
+  location String? // bodega/sucursal/estante, etc.
+
+  // Costeo básico
+  cost       Decimal?  @db.Decimal(12, 2)
+  receivedAt DateTime?
+
+  // Relación de venta: una unidad de inventario solo puede venderse una vez
+  saleLine SaleLine?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([productId, status])
+  @@index([status])
+}
+
+// =========================
+// CLIENTES / VENTAS / FACTURACIÓN
+// =========================
+
+model Customer {
+  id       Int     @id @default(autoincrement())
+  fullName String
+  email    String?
+  phone    String?
+
+  // Identificación fiscal/contable (opcional pero útil para facturación)
+  documentType   String?
+  documentNumber String?
+
+  sales Sale[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([email])
+  @@index([phone])
+}
+
+model Sale {
+  id         Int        @id @default(autoincrement())
+  saleNumber String     @unique
+  status     SaleStatus @default(COMPLETED)
+
+  customerId Int?
+  customer   Customer? @relation(fields: [customerId], references: [id], onDelete: SetNull)
+
+  soldAt DateTime @default(now())
+
+  // Totales (se pueden recalcular desde líneas, pero se guardan para trazabilidad/reportes)
+  subtotal Decimal @db.Decimal(12, 2)
+  tax      Decimal @default(0) @db.Decimal(12, 2)
+  total    Decimal @db.Decimal(12, 2)
+  currency String  @default("COP")
+
+  notes String?
+
+  lines    SaleLine[]
+  payments Payment[]
+  invoice  Invoice?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([customerId, soldAt])
+  @@index([status, soldAt])
+}
+
+model SaleLine {
+  id              Int @id @default(autoincrement())
+  saleId          Int
+  inventoryItemId Int @unique // garantiza "vidrio en específico" vendido una sola vez
+
+  sale          Sale          @relation(fields: [saleId], references: [id], onDelete: Cascade)
+  inventoryItem InventoryItem @relation(fields: [inventoryItemId], references: [id], onDelete: Restrict)
+
+  quantity  Int     @default(1)
+  unitPrice Decimal @db.Decimal(12, 2)
+  discount  Decimal @default(0) @db.Decimal(12, 2)
+  lineTotal Decimal @db.Decimal(12, 2)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([saleId])
+}
+
+model Payment {
+  id     Int  @id @default(autoincrement())
+  saleId Int
+  sale   Sale @relation(fields: [saleId], references: [id], onDelete: Cascade)
+
+  method    PaymentMethod
+  amount    Decimal       @db.Decimal(12, 2)
+  currency  String        @default("COP")
+  reference String?
+  paidAt    DateTime      @default(now())
+
+  createdAt DateTime @default(now())
+
+  @@index([saleId, paidAt])
+}
+
+model Invoice {
+  id     Int  @id @default(autoincrement())
+  saleId Int  @unique
+  sale   Sale @relation(fields: [saleId], references: [id], onDelete: Cascade)
+
+  invoiceNumber String        @unique
+  status        InvoiceStatus @default(PENDING)
+
+  // Campos típicos de factura electrónica (genéricos)
+  electronicKey String? // ej. CUFE/CUDE/UUID según país/proveedor
+  issuedAt      DateTime @default(now())
+
+  // Evidencia/archivos para trazabilidad
+  pdfUrl String?
+  xmlUrl String?
+
+  // Envío por correo (log mínimo)
+  sentToEmail    String?
+  sentAt         DateTime?
+  emailProvider  String?
+  emailMessageId String?
+  emailError     String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([status, issuedAt])
 }
