@@ -91,6 +91,10 @@ const NavBarComponent = () => {
                 Vidrios para vehículo
               </Link>
               <div className="h-[1px] rounded-full bg-white w-[160px] mb-2"></div>
+              <Link href={"/servicios-productos/ingenieria-vidrio"}>
+                Ingeniería en vidrio
+              </Link>
+              <div className="h-[1px] rounded-full bg-white w-[160px] mb-2"></div>
               <Link href={"/servicios-productos/instalacion-sunroof"}>
                 Instalación Sunroof
               </Link>
@@ -219,6 +223,10 @@ const NavBarComponent = () => {
                   <PopoverContent>
                     <Link href={"/servicios-productos/vidrios-para-vehiculo"}>
                       Vidrios para vehículo
+                    </Link>
+                    <div className="h-[1px] rounded-full bg-white w-[160px] mb-2"></div>
+                    <Link href={"/servicios-productos/ingenieria-vidrio"}>
+                      Ingeniería en vidrio
                     </Link>
                     <div className="h-[1px] rounded-full bg-white w-[160px] mb-2"></div>
                     <Link href={"/servicios-productos/instalacion-sunroof"}>
