@@ -364,11 +364,17 @@ export default function GlassCanvas({ onRevealComplete }: GlassCanvasProps) {
 
     const FINAL_ROT_Y = -0.72;
     const FINAL_ROT_X = 0.18;
-    let targetRotY = FINAL_ROT_Y;
-    let targetRotX = FINAL_ROT_X;
+    const isTouch =
+      window.matchMedia?.("(hover: none), (pointer: coarse)").matches ??
+      "ontouchstart" in window;
+    // En móvil el giro debe notarse siempre; en desktop un poco más lento
+    const AUTO_SPIN = isTouch ? 0.0048 : 0.0032;
+
+    let baseRotY = FINAL_ROT_Y;
+    let dragOffsetY = 0;
+    let dragOffsetX = 0;
     let currentRotY = reduceMotion ? FINAL_ROT_Y : -2.45;
     let currentRotX = reduceMotion ? FINAL_ROT_X : 0.55;
-    let autoRotate = false;
     let dragging = false;
     let lastX = 0;
     let lastY = 0;
@@ -377,12 +383,12 @@ export default function GlassCanvas({ onRevealComplete }: GlassCanvasProps) {
     let scrollT = 0;
     let revealDone = reduceMotion;
     let completedFired = false;
+    let resumeSpinTimer: number | null = null;
 
     if (reduceMotion) {
       group.scale.setScalar(1);
       group.position.y = 0;
       group.rotation.set(FINAL_ROT_X, FINAL_ROT_Y, 0.04);
-      autoRotate = true;
       queueMicrotask(() => onCompleteRef.current?.());
       completedFired = true;
     } else {
@@ -394,19 +400,24 @@ export default function GlassCanvas({ onRevealComplete }: GlassCanvasProps) {
     const onDown = (x: number, y: number) => {
       if (!revealDone) return;
       dragging = true;
-      autoRotate = false;
+      if (resumeSpinTimer !== null) {
+        window.clearTimeout(resumeSpinTimer);
+        resumeSpinTimer = null;
+      }
       lastX = x;
       lastY = y;
     };
     const onMove = (x: number, y: number) => {
       if (!dragging) {
-        mouseNX = (x / window.innerWidth) * 2 - 1;
-        mouseNY = (y / window.innerHeight) * 2 - 1;
+        if (!isTouch) {
+          mouseNX = (x / window.innerWidth) * 2 - 1;
+          mouseNY = (y / window.innerHeight) * 2 - 1;
+        }
         return;
       }
-      targetRotY += (x - lastX) * 0.006;
-      targetRotX += (y - lastY) * 0.004;
-      targetRotX = Math.max(-0.55, Math.min(0.65, targetRotX));
+      dragOffsetY += (x - lastX) * 0.006;
+      dragOffsetX += (y - lastY) * 0.004;
+      dragOffsetX = Math.max(-0.55, Math.min(0.55, dragOffsetX));
       lastX = x;
       lastY = y;
     };
@@ -419,6 +430,15 @@ export default function GlassCanvas({ onRevealComplete }: GlassCanvasProps) {
     const onPointerUp = () => {
       renderer.domElement.style.cursor = revealDone ? "grab" : "default";
       dragging = false;
+      // En móvil, vuelve al giro automático tras soltar
+      if (resumeSpinTimer !== null) window.clearTimeout(resumeSpinTimer);
+      resumeSpinTimer = window.setTimeout(() => {
+        // Integra el arrastre al giro base y suaviza el offset
+        baseRotY += dragOffsetY;
+        dragOffsetY = 0;
+        dragOffsetX *= 0.35;
+        resumeSpinTimer = null;
+      }, isTouch ? 120 : 400);
     };
     const onWheel = (e: WheelEvent) => {
       if (!revealDone) return;
@@ -434,6 +454,7 @@ export default function GlassCanvas({ onRevealComplete }: GlassCanvasProps) {
     renderer.domElement.addEventListener("pointerdown", onPointerDown);
     window.addEventListener("pointermove", onPointerMove);
     window.addEventListener("pointerup", onPointerUp);
+    window.addEventListener("pointercancel", onPointerUp);
     window.addEventListener("wheel", onWheel, { passive: true });
     window.addEventListener("resize", onResize);
 
@@ -464,9 +485,9 @@ export default function GlassCanvas({ onRevealComplete }: GlassCanvasProps) {
 
         if (raw >= 1) {
           revealDone = true;
-          targetRotY = FINAL_ROT_Y;
-          targetRotX = FINAL_ROT_X;
-          autoRotate = true;
+          baseRotY = FINAL_ROT_Y;
+          currentRotY = FINAL_ROT_Y;
+          currentRotX = FINAL_ROT_X;
           renderer.domElement.style.cursor = "grab";
           if (!completedFired) {
             completedFired = true;
@@ -474,12 +495,22 @@ export default function GlassCanvas({ onRevealComplete }: GlassCanvasProps) {
           }
         }
       } else {
-        if (autoRotate) {
-          targetRotY += 0.0022;
-          targetRotX = 0.16 + Math.sin(elapsed * 0.32) * 0.04;
+        // Giro continuo obligatorio (también en móvil)
+        if (!dragging) {
+          baseRotY += AUTO_SPIN;
         }
-        currentRotY += (targetRotY + mouseNX * 0.14 - currentRotY) * 0.06;
-        currentRotX += (targetRotX - mouseNY * 0.08 - currentRotX) * 0.06;
+
+        const targetY =
+          baseRotY + dragOffsetY + (isTouch ? 0 : mouseNX * 0.1);
+        const targetX =
+          FINAL_ROT_X +
+          dragOffsetX +
+          Math.sin(elapsed * 0.35) * 0.045 +
+          (isTouch ? 0 : -mouseNY * 0.06);
+
+        currentRotY += (targetY - currentRotY) * 0.08;
+        currentRotX += (targetX - currentRotX) * 0.08;
+
         group.rotation.y = currentRotY;
         group.rotation.x = currentRotX;
         group.rotation.z = 0.04 + Math.sin(elapsed * 0.18) * 0.015;
@@ -495,10 +526,12 @@ export default function GlassCanvas({ onRevealComplete }: GlassCanvasProps) {
 
     return () => {
       disposed = true;
+      if (resumeSpinTimer !== null) window.clearTimeout(resumeSpinTimer);
       cancelAnimationFrame(frameId);
       renderer.domElement.removeEventListener("pointerdown", onPointerDown);
       window.removeEventListener("pointermove", onPointerMove);
       window.removeEventListener("pointerup", onPointerUp);
+      window.removeEventListener("pointercancel", onPointerUp);
       window.removeEventListener("wheel", onWheel);
       window.removeEventListener("resize", onResize);
       disposables.forEach((d) => d.dispose());
